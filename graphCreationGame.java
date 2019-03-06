@@ -131,10 +131,7 @@ public class graphCreationGame {
 		//for each node curPlayer , remove egdes in resposibility, find BRD build edges.
 		for(int curPlayer: nextToPlay){
 			prevCost=graph.nodes[curPlayer].cost;
-			System.out.println("curPlayer: "+ curPlayer);
-			System.out.println("curPlayer cost: "+ graph.nodes[curPlayer].cost);
 			simulator.printGraph(graph);
-			System.out.println("curPlayer is playing ");
 			TimeUnit.SECONDS.sleep(0);
 			findInResponsibilityNeibers(curPlayer,prevNeighbors); 
 			removeEdgesUnderPlayerResponsibility(curPlayer);
@@ -153,12 +150,8 @@ public class graphCreationGame {
 			//building all chosen edges
 			addEdgesToPlayer(curPlayer,BRD); //TODO ubdate hwo responsible on this edges
 			graph.updateResponsobility(curPlayer,BRD,false);
-			System.out.println("curPlayer build edges to: ");
 			for(int nieghbor:BRD) System.out.println(nieghbor+", ");
-			System.out.println("curPlayer: "+ curPlayer);
-			System.out.println("curPlayer cost: "+ graph.nodes[curPlayer].cost);
 			simulator.printGraph(graph);
-			System.out.println("curPlayer is done playing ");
 			//init all list for next node
 			BRD.removeAll(BRD);
 			legalNeighbors.removeAll(legalNeighbors);
